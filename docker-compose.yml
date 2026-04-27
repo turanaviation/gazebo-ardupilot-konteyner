@@ -1,0 +1,15 @@
+services:
+  gz-ardupilot:
+    build: .
+    image: ardupilot-sim:latest
+    container_name: gz-ardupilot
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    network_mode: host
+    devices:
+      - /dev/dri:/dev/dri
+    shm_size: 256mb
+    stdin_open: true
+    tty: true
